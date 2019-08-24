@@ -1,0 +1,66 @@
+$color1light: #D6E9F4;
+$color1:      #CEE5F2;
+$color2dark:  #A9BCC7;
+
+$color2light: #BBD4E6;
+$color2:      #ACCBE1;
+$color2dark:  #8DA7B9;
+
+$color3light: #93AAC0;
+$color3:      #7C98B3;
+$color3dark:  #667D93;
+
+$color4light: #7F8A97;
+$color4:      #637081;
+$color4dark:  #525C6A;
+
+$color5light: #728590;
+$color5:      #536B78;
+$color5dark:  #445863;
+
+/* use Helvetica sitewide */
+
+h1 { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 24px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 26.4px; 
+} 
+
+h3 { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 14px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 15.4px; 
+} 
+
+p { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 14px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 20px; 
+} 
+
+blockquote { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 21px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 30px; 
+} 
+
+pre { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 13px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 18.5714px; 
+}
