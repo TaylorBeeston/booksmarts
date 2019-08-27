@@ -1,27 +1,42 @@
-$color1light: #D6E9F4;
-$color1:      #CEE5F2;
-$color2dark:  #A9BCC7;
+:root {
+  --dark:        #0C0E11;
+  --light:       #F3F5F8;
 
-$color2light: #BBD4E6;
-$color2:      #ACCBE1;
-$color2dark:  #8DA7B9;
+  --color1light: #D6E9F4;
+  --color1:      #CEE5F2;
+  --color1dark:  #A9BCC7;
 
-$color3light: #93AAC0;
-$color3:      #7C98B3;
-$color3dark:  #667D93;
+  --color2light: #BBD4E6;
+  --color2:      #ACCBE1;
+  --color2dark:  #8DA7B9;
 
-$color4light: #7F8A97;
-$color4:      #637081;
-$color4dark:  #525C6A;
+  --color3light: #93AAC0;
+  --color3:      #7C98B3;
+  --color3dark:  #667D93;
 
-$color5light: #728590;
-$color5:      #536B78;
-$color5dark:  #445863;
+  --color4light: #7F8A97;
+  --color4:      #637081;
+  --color4dark:  #525C6A;
 
-/* use Helvetica sitewide */
+  --color5light: #728590;
+  --color5:      #536B78;
+  --color5dark:  #445863;
+}
+
+/* global css */
+
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--color3);
+  color: var(--dark);
+}
+
+/* global typography */
 
 h1 { 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 24px; 
   font-style: normal; 
   font-variant: normal; 
@@ -29,8 +44,15 @@ h1 {
   line-height: 26.4px; 
 } 
 
+h2 { 
+  font-size: 18px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 19.4px; 
+} 
+
 h3 { 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 14px; 
   font-style: normal; 
   font-variant: normal; 
@@ -39,7 +61,6 @@ h3 {
 } 
 
 p { 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 14px; 
   font-style: normal; 
   font-variant: normal; 
@@ -48,7 +69,6 @@ p {
 } 
 
 blockquote { 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 21px; 
   font-style: normal; 
   font-variant: normal; 
@@ -57,10 +77,165 @@ blockquote {
 } 
 
 pre { 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 13px; 
   font-style: normal; 
   font-variant: normal; 
   font-weight: 400; 
   line-height: 18.5714px; 
+}
+
+/* main elements */
+
+.big-screen {
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--color2);
+  padding: 10px;
+  box-shadow: 0 0 25px;
+}
+
+.presenter {
+  width: 80%;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--color2);
+  letter-spacing: 2px;
+
+  h1 {
+    font-size: 5.5em;
+    letter-spacing: 10px;
+    text-align: center;
+    text-shadow: 0 0 10px var(--dark);
+  }
+
+  h2 {
+    font-size: 2.0em;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--color2light);
+    box-shadow: 0 0 10px var(--color2light);
+  }
+}
+
+/* header styles */
+
+header {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  background-color: var(--color1light);
+  position: relative;
+  z-index: 1;
+
+  > div {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color1);
+    width: 92.5%;
+    margin: auto;
+    padding: 25px 0;
+    border-radius: 5px;
+  }
+}
+
+#header-logo {
+  display: block;
+
+  a {
+    letter-spacing: 10px;
+    text-decoration: none;
+    font-size: 1.7em;
+    color: var(--dark);
+  }
+}
+
+#header-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  a {
+    text-decoration: none;
+    color: var(--dark);
+    padding: 20px 30px; 
+    margin: 0px 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    background-color: var(--color1light);
+    transition: background-color 2s;
+
+    &:hover {
+      background-color: var(--color1dark);
+    }
+  }
+}
+
+/* footer styles */
+
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  background-color: var(--color1light);
+  position: relative;
+  z-index: 1;
+
+  > div {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color1);
+    width: 92.5%;
+    margin: auto;
+    padding: 25px 0;
+    border-radius: 5px;
+  }
+}
+
+#footer-logo {
+  display: block;
+
+  a {
+    letter-spacing: 10px;
+    text-decoration: none;
+    font-size: 1.7em;
+    color: var(--dark);
+  }
+}
+
+#footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  a {
+    text-decoration: none;
+    color: var(--dark);
+    padding: 10px; 
+    margin: 0px 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    background-color: var(--color1light);
+    transition: background-color 2s;
+
+    &:hover {
+      background-color: var(--color1dark);
+    }
+  }
 }
