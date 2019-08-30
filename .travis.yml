@@ -1,19 +1,22 @@
-addons:
-  postgresql: 11.3
-  apt:
-    packages:
-    - postgresql-11
-    - postgresql-client-11
-before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres'
 dist: bionic
-env:
-  global:
-  - PGPORT=5433
 language: ruby
 rvm:
   - 2.5.1
+before_install:
+  - sudo apt-get update
+  - sudo apt-get --yes remove postgresql\*
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  - sudo service postgresql restart 11  
+before_script:
+  - psql --version
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 script:
   - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rails test
+services:
+  - postgresql
+addons:
+  postgresql: 11.3
