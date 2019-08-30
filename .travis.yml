@@ -1,22 +1,25 @@
 dist: bionic
 language: ruby
 rvm:
-  - 2.5.1
+- 2.5.1
 before_install:
-  - sudo apt-get update
-  - sudo apt-get --yes remove postgresql\*
-  - sudo apt-get install -y postgresql-11 postgresql-client-11
-  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
-  - sudo service postgresql restart 11  
+- sudo apt-get update
+- sudo apt-get --yes remove postgresql\*
+- sudo apt-get install -y postgresql-11 postgresql-client-11
+- sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+- sudo service postgresql restart 11
 before_script:
-  - psql --version
-  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
-  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+- psql --version
+- psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+- psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+- cp config/database.yml.travis config/database.yml
 script:
-  - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rails test
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rails test
 services:
-  - postgresql
+- postgresql
 addons:
   postgresql: 11.3
+deploy:
+  api_key:
+    secure: vf2XJqEsaR0UVW/OGBcRCz7ko5exmGk9wjtlQ4RfOEW5CG+frypFa9bhFuFnm/Fh6ppMgQTnif+b1Tt7+XzmA0vYkIfpGhU58YcA10ppGoYyUoOzYFGjo+wyoH24/VYjp4atMsEc5hGjgT8VIa5Ua58PwaR030EQiZk+zg1zjCjEoyTolOQB75dXEmMFX/K3dESR2riSTQ5qYKG4UXDozD/Iask4bAt0eLASZ5XzZZKq2fBUVV3FUdzfK4Lrpx9tlxnhk6iI0XX+7LTZcW7x8RsPbrwjKxRUlpT3Kb6+eB8v0dr5JQMoPNk6amR6M7VYRDBMlx+vcjWpQOquhyQ98ECEeLmdpS1l/VDtxuGyXxdN20X5gMAPYOxuNGxy2ITKjjxLq1P1q3B21kZauwQJhOeTzTq3Exclg3IAmgMQdO/qGAGd7oo4AbofC8GuD/YinLMdj5x+K5Wa36LaIl3JmteFQFLOg6kJTZVis4J8k63pyrdJ+VnYZA1JtL6H9PLgEjXbHMwM674VhYUpoF0atjt69HvQw6VT9cHh/vA4AQi3WYVXDWchxPF2j5TcX49kHGNf9La530HZAGxMg1NkFvkeg8qqUcNlulL1ANKOBpUNJ383NCmSV6NUhGrUByfVpcv5g0hkQ1yy+/hzvcp5K+2lkOe7YeQ/Qrft1fE+nQ0=
