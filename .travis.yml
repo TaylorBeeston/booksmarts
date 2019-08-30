@@ -1,0 +1,19 @@
+addons:
+  postgresql: 11.3
+  apt:
+    packages:
+    - postgresql-11
+    - postgresql-client-11
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres'
+dist: trusty
+env:
+  global:
+  - PGPORT=5433
+language: ruby
+rvm:
+  - 2.5.1
+script:
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rails test
