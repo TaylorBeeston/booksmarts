@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TaylorBeeston/booksmarts.svg?branch=master)](https://travis-ci.org/TaylorBeeston/booksmarts)
+
 # Booksmarts
 
 ---
