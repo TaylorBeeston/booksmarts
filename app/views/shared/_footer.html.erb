@@ -10,7 +10,11 @@
         <a href="#">Help</a>
     </div>
     <div id="footer-login-status">
-      <span>You are not currently logged in</span>
+      <% if user_signed_in? %>
+        <%= "Logged in as #{current_user[:email]}" %>
+      <% else %>
+        <span>You are not currently logged in</span>
+      <% end %>
     </div>
   </div>
 </footer>
