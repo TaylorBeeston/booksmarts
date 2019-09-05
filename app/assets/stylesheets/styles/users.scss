@@ -13,6 +13,23 @@
     width: 80%;
   }
 
+  .remember-me {
+    width: 80%;
+    margin: auto;
+
+    label {
+      transition: letter-spacing 2s;
+    }
+
+    input + label {
+      letter-spacing: normal;
+    }
+
+    input:checked + label {
+      letter-spacing: 1.5px;
+    }
+  }
+
   .field {
     width: 80%;
     margin: auto;
