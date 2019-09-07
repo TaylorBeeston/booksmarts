@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .letter-spread {
-  animation: spread-letters 4s;
+  animation: main-spread-letters 4s;
 }
 
-@keyframes spread-letters {
+@keyframes main-spread-letters {
   from { letter-spacing: -25px; }
   to   { letter-spacing: 10px; }
 }

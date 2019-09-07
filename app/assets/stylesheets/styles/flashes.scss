@@ -1,0 +1,32 @@
+.alert {
+  width: 65%;
+  margin: 5px auto;
+  padding: 15px;
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  animation: flash-spread-letters 3s;
+  letter-spacing: 1.2px;
+}
+
+.alert-notice {
+  background-color: var(--notice);
+}
+
+.alert-success {
+  background-color: var(--success);
+}
+
+.alert-error {
+  background-color: var(--error);
+}
+
+.alert-warning {
+  background-color: var(--warning);
+}
+
+@keyframes flash-spread-letters {
+  from { letter-spacing: -5px; }
+  to   { letter-spacing: 1.2px; }
+}
