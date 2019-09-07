@@ -17,4 +17,13 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "a[href=?]", destroy_user_session_path
   end
+
+  test "omniauth links on signup page" do
+    get new_user_registration_path
+    assert_response :success
+    assert_select "a[href=?]", 'facebook.com'
+    assert_select "a[href=?]", 'twitter.com'
+    assert_select "a[href=?]", 'google.com'
+    assert_select "a[href=?]", 'amazon.com'
+  end
 end
