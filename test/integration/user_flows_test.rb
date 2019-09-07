@@ -1,0 +1,20 @@
+require 'test_helper'
+
+class UserFlowsTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
+  def setup
+    @taylor = users(:taylor)
+    @other  = users(:not_taylor)
+  end
+
+  test "sign in sign out links on home page" do
+    get root_path
+    assert_response :success
+    assert_select "a[href=?]", new_user_session_path
+    sign_in @taylor
+    get root_path
+    assert_response :success
+    assert_select "a[href=?]", destroy_user_session_path
+  end
+end
