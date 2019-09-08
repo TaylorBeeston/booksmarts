@@ -65,7 +65,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://booksmarts.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default charset: 'utf-8'
-  config.action_mailer.default_options = { from: ENV['SENDGRID_USERNAME'] }
+  config.action_mailer.default_options = { from: 'BooksmartsWebsite@gmail.com' }
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
