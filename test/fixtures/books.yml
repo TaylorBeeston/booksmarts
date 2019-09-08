@@ -1,11 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  author: MyString
-  user: one
+valid:
+  title: This is a Valid Book
+  author: Taylor Beeston
+  user: taylor
 
-two:
-  title: MyString
-  author: MyString
-  user: two
+noauthor:
+  title: This book has no author
+  user: taylor
