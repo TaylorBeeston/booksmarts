@@ -1,6 +1,6 @@
 <div class="presenter"><h2 class="letter-spread">Hello, <%= current_user.email %></h2></div>
 <div class="presenter">
-  <% if current_user.books.empty? %>
+  <% if @books.empty? %>
     <h3>
       Your 
       <%= link_to 'books', books_path %> 
@@ -8,8 +8,6 @@
       <%= link_to 'add one!', new_book_path %> 
     </h3>
   <% else %>
-    <% current_user.books.each do |book| %>
-      <%= render book %>
-    <% end %>
+    <%= render @books %>
   <% end %>
 </div>
