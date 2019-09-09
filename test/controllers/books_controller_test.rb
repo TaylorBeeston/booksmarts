@@ -3,6 +3,7 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @book = books(:valid)
+    @user = users(:taylor)
   end
 
   test "should get index" do
@@ -17,7 +18,8 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create book" do
     assert_difference('Book.count') do
-      post books_url, params: { book: {title: 'Test', author: 'Test', user_id: 1 } }
+      post books_url, params: { book: { title: 'Test', author: 'Test', 
+                                        user_id: @user.id } }
     end
 
     assert_redirected_to book_url(Book.last)
@@ -34,7 +36,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update book" do
-    patch book_url(@book), params: { book: {  } }
+    patch book_url(@book), params: { book: { title: 'updated title' } }
     assert_redirected_to book_url(@book)
   end
 
