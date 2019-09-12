@@ -6,9 +6,9 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     @user = users(:taylor)
   end
 
-  test "should get index" do
+  test "shouldn't get index if not signed in" do
     get books_url
-    assert_response :success
+    assert_redirected_to root_path
   end
 
   test "should get new" do
