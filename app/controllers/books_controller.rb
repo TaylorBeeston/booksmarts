@@ -25,7 +25,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params.merge(user_id: current_user.id))
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
 
     respond_to do |format|
       if @book.save
@@ -42,6 +43,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     respond_to do |format|
+      params[:book][:author] = 'Unknown' if params[:book][:author].blank?
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
