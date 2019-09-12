@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book,     only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /books
@@ -73,5 +74,10 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :author)
+    end
+
+    # Ensure this book is for the currnet user
+    def correct_user
+      redirect_to root_path unless current_user.id == @book.user_id
     end
 end
