@@ -1,14 +1,18 @@
 require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @book = books(:valid)
     @user = users(:taylor)
+    sign_in @user
   end
 
   test "shouldn't get index if not signed in" do
+    sign_out @user
     get books_url
-    assert_redirected_to root_path
+    assert_redirected_to new_user_session_path
   end
 
   test "should get new" do
