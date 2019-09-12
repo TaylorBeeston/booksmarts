@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="presenter">
+  <div class="nav-buttons">
+    <%= link_to 'Back', books_path %>
+    <%= link_to 'Edit', edit_book_path(@book) %>
+  </div>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+  <div class="big book">
+    <%= image_tag 'placeholder.png', alt: 'Book cover' %>
+    <h4><%= @book.title %></h4>
+    <p><%= @book.author %></p>
+  </div>
+</div>

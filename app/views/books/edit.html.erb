@@ -1,6 +1,10 @@
-<h1>Editing Book</h1>
+<div class="presenter">
+  <div class="nav-buttons">
+    <%= link_to 'Back', books_path %>
+    <%= link_to 'Show', @book %>
+  </div>
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+  <h1>Edit Book</h1>
+  
+  <%= render 'form', book: @book %>
+</div>

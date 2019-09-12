@@ -1,4 +1,13 @@
 <div class="book">
-  <h4><%= book.title %></h4>
-  <span><%= book.author %></span>
+  <%= link_to book do %>
+    <%= image_tag 'placeholder.png', alt: 'Book cover' %>
+    <h4><%= book.title %></h4>
+    <p><%= book.author %></p>
+  <% end %>
+  <% if current_user.books.where(id: book.id).exists? %>
+    <%= link_to 'Edit', edit_book_path(book), class: 'edit-link' %>
+    <%= link_to 'Remove', book, method: :delete, 
+                data: { confirm: 'Are you sure you want to remove this book from your list?' }, 
+                class: 'delete-link' %>
+  <% end %>
 </div>
