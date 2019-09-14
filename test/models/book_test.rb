@@ -4,6 +4,7 @@ class BookTest < ActiveSupport::TestCase
   def setup
     @valid  = books(:valid)
     @noauth = books(:noauthor)
+    @taylor = users(:taylor)
   end
 
   test 'should not save without title' do
@@ -25,5 +26,9 @@ class BookTest < ActiveSupport::TestCase
     assert_equal 'This is a Valid Book', @valid[:title]
     assert @valid.valid?, 'Valid Book is not valid'
     assert @noauth.valid?, 'Book with no author is not valid'
+  end
+
+  test 'in_library?' do
+    assert_equal true, @valid.in_library?(@taylor)
   end
 end
