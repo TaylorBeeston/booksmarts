@@ -26,7 +26,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       post books_url, params: { book: { title: 'Test', author: 'Test' } }
     end
 
-    assert_redirected_to book_url(Book.last)
+    assert_redirected_to root_path
   end
 
   test 'should show book' do
@@ -41,7 +41,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update book' do
     patch book_url(@book), params: { book: { title: 'updated title' } }
-    assert_redirected_to book_url(@book)
+    assert_redirected_to root_path
   end
 
   test 'should destroy book' do
@@ -49,7 +49,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       delete book_url(@book)
     end
 
-    assert_redirected_to books_url
+    assert_redirected_to root_path
   end
 
   test 'add book to library' do
