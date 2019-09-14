@@ -4,8 +4,9 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @book = books(:valid)
-    @user = users(:taylor)
+    @book  = books(:valid)
+    @user  = users(:taylor)
+    @user2 = users(:not_taylor)
     sign_in @user
   end
 
@@ -49,5 +50,14 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to books_url
+  end
+
+  test "add book to library" do
+    sign_out @user
+    sign_in  @user2
+
+    assert_difference('Book.count', 1) do
+      post add_book_url(@book)
+    end
   end
 end
