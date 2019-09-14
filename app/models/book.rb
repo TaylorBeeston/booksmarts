@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   before_update :default_author
 
   def in_library?(user)
-    user.books.include? self
+    user.books.where(id: self.id).exists?
   end
 
   private
