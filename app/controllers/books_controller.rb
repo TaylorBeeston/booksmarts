@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book,     only: [:show, :edit, :update, :destroy]
+  before_action :set_book,     only: [:show, :edit, :update, :destroy, :add]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -66,6 +66,18 @@ class BooksController < ApplicationController
 
   # POST /books/add
   def add
+    @new_book = @book.clone
+    @new_book.user_id = params[:user][:id]
+
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, notice: 'Book was successfully added.' }
+        format.json { render :show, status: :added, location: @book }
+      else
+        format.html { render :new }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
