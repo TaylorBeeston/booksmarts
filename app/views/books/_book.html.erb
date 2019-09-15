@@ -4,10 +4,15 @@
     <h4><%= book.title %></h4>
     <p><%= book.author %></p>
   <% end %>
-  <% if current_user.books.where(id: book.id).exists? %>
+  <% if book.in_library?(current_user) %>
     <%= link_to 'Edit', edit_book_path(book), class: 'edit-link' %>
-    <%= link_to 'Remove', book, method: :delete, 
+    <%= link_to 'Remove From Library', book, method: :delete, 
                 data: { confirm: 'Are you sure you want to remove this book from your list?' }, 
                 class: 'delete-link' %>
+  <% else %>
+    <%= form_with url: add_book_path(book) do |form| %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+      <%= form.submit 'Add To Library', class: 'add-link' %>
+    <% end %>
   <% end %>
 </div>

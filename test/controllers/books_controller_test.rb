@@ -57,7 +57,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     sign_in  @user2
 
     assert_difference('User.last.books.count', 1) do
-      post add_book_url(@book), params: { user: { id: @user2.id } }
+      post add_book_url(@book), params: { user_id: @user2.id  }
     end
   end
 end

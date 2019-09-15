@@ -67,7 +67,7 @@ class BooksController < ApplicationController
   # POST /books/add
   def add
     @new_book = @book.clone
-    @new_book.user_id = params[:user][:id]
+    @new_book.user_id = params[:user_id]
 
     respond_to do |format|
       if @book.save
