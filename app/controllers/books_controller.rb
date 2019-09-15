@@ -66,16 +66,16 @@ class BooksController < ApplicationController
 
   # POST /books/add
   def add
-    @new_book = @book.clone
+    @new_book = @book.dup
     @new_book.user_id = params[:user_id]
 
     respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully added.' }
-        format.json { render :show, status: :added, location: @book }
+      if @new_book.save
+        format.html { redirect_to @new_book, notice: 'Book was successfully added.' }
+        format.json { render :show, status: :added, location: @new_book }
       else
         format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: @new_book.errors, status: :unprocessable_entity }
       end
     end
   end
