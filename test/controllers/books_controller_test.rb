@@ -60,4 +60,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       post add_book_url(@book), params: { user_id: @user2.id  }
     end
   end
+
+  test "adding a book to your library shouldn't remove it from someone else's" do
+    sign_out @user
+    sign_in  @user2
+
+    assert_no_difference('User.first.books.count') do
+      post add_book_url(@book), params: { user_id: @user2.id  }
+    end
+  end
 end
