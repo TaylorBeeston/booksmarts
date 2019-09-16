@@ -4,7 +4,8 @@ class Book < ApplicationRecord
   before_update :default_author
 
   def in_library?(user)
-    user.books.where(id: self.id).exists?
+    user.books.where(id: id).exists? || 
+      user.books.where(title: title, author: author).exists?
   end
 
   private

@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     respond_to do |format|
-      if @book.save
+      if !@book.in_library?(current_user) && @book.save
         format.html { redirect_to root_path, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
     @new_book.user_id = params[:user_id]
 
     respond_to do |format|
-      if @new_book.save
+      if !@book.in_library?(current_user) && @new_book.save
         format.html { redirect_to @new_book, notice: 'Book was successfully added.' }
         format.json { render :show, status: :added, location: @new_book }
       else
