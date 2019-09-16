@@ -69,4 +69,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
       post add_book_url(@book), params: { user_id: @user2.id  }
     end
   end
+
+  test 'cannot add the same book twice' do
+    assert_no_difference('User.first.books.count') do
+      post add_book_url(@book), params: { user_id: @user.id  }
+    end
+  end
 end
