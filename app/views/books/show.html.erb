@@ -5,7 +5,11 @@
   </div>
 
   <div class="big book">
-    <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
+    <% if @book.cover.attached? %>
+      <%= image_tag @book.cover, alt: 'Book cover', class: 'book-cover' %>
+    <% else %>
+      <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
+    <% end %>
     <h4><%= @book.title %></h4>
     <p><%= @book.author %></p>
   </div>

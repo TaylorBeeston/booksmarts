@@ -152,6 +152,11 @@ input[type=submit] {
   }
 }
 
+/* image uploader */
+.image-upload > input {
+  display: none;
+}
+
 /* header styles */
 
 header {

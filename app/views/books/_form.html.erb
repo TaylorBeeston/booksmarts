@@ -11,7 +11,19 @@
     </div>
   <% end %>
 
-  <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
+  <div class="image-upload">
+    <%= form.label :cover do %>
+      <% if book.cover.attached? %>
+        <%= image_tag book.cover, alt: 'Book cover', class: 'book-cover', 
+                                  id: 'cover-preview' %>
+      <% else %>
+        <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover',
+                                         id: 'cover-preview' %>
+      <% end %>
+    <% end %>
+    <%= form.file_field :cover %>
+  </div>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -24,3 +36,5 @@
 
   <%= form.submit class: 'submit-button' %>
 <% end %>
+
+<%= javascript_pack_tag 'imageform' %>
