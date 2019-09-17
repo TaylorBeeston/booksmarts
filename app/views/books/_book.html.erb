@@ -1,6 +1,6 @@
 <div class="book">
   <%= link_to book do %>
-    <%= image_tag 'placeholder.png', alt: 'Book cover' %>
+    <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
     <h4><%= book.title %></h4>
     <p><%= book.author %></p>
   <% end %>
