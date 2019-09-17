@@ -9,6 +9,16 @@
       "js.map": [
         "/packs-test/js/application-38647788801aef088fc0.js.map"
       ]
+    },
+    "imageform": {
+      "js": [
+        "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js"
+      ],
+      "js.map": [
+        "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js.map"
+      ]
     }
-  }
+  },
+  "imageform.js": "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js",
+  "imageform.js.map": "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js.map"
 }
