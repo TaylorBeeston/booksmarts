@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # User authentications
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 
 # Local env vars
 gem 'figaro'
