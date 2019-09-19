@@ -1,21 +1,30 @@
 dist: bionic
 language: ruby
 rvm:
-- 2.5.1
+  - 2.5.1
 before_install:
-- sudo apt-get update
-- sudo apt-get --yes remove postgresql\*
-- sudo apt-get install -y postgresql-11 postgresql-client-11
-- sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
-- sudo service postgresql restart 11
+  - sudo apt-get update
+  - sudo apt-get --yes remove postgresql\*
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  - sudo service postgresql restart 11
 before_script:
-- psql --version
-- psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
-- psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
-- cp config/database.yml.travis config/database.yml
+  - psql --version
+  - psql -c 'CREATE DATABASE travis_ci_test;' -U postgres
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+cache:
+  bundler: true
+  directories:
+    - node_modules
+  yarn: true
+install:
+  - bundle install
+  - yarn
 script:
-- bundle exec rails db:migrate RAILS_ENV=test
-- bundle exec rails test
+  - bundle exec rails webpacker:compile
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rails test
 services:
 - postgresql
 addons:
