@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   before_update :default_author
 
   has_one_attached :cover
+  has_rich_text :note
 
   def in_library?(user)
     user.books.where(id: id).exists? || 
