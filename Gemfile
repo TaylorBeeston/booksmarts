@@ -34,6 +34,9 @@ gem 'devise', '>= 4.7.1'
 # Local env vars
 gem 'figaro'
 
+# Navigation
+gem 'simple-navigation', '~> 4.1'
+
 group :production do
   gem 'aws-sdk-s3', require: false
 end
