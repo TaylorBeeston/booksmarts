@@ -58,7 +58,10 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.dom_id = 'sidebar-links'
     primary.item :home, 'Home', root_url
-    primary.item :books, 'Books', books_path, if: -> { user_signed_in? }
+    primary.item :books, 'Books', books_path, if: -> { user_signed_in? } do |sub|
+      sub.item :new, 'New', new_book_path
+      sub.item :index, 'All', books_path
+    end
     primary.item :sign_in, 'Log In', new_user_session_path,
                  unless: -> { user_signed_in? }
     primary.item :sign_out, 'Log Out', destroy_user_session_path,

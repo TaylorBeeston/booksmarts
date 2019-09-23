@@ -191,6 +191,10 @@ header {
 
 /* sidebar styles */
 
+#sidebar {
+  position: relative;
+}
+
 #menuToggle {
   display: block;
   position: relative;
@@ -258,9 +262,10 @@ header {
 }
 
 #sidebar-links {
-  position: absolute;
+  position: fixed;
   width: 300px;
-  margin: -100px 0 0 -50px;
+  height: 100vh;
+  margin: -82px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
   background: var(--color5);
@@ -273,6 +278,19 @@ header {
   li {
     padding: 10px 0;
     font-size: 22px;
+
+    ul {
+      display: none;
+      list-style-type: none;
+    }
+
+    &:hover ul {
+      display: block;
+    }
+  }
+
+  .selected ul {
+    display: block;
   }
 
   a {
@@ -283,6 +301,10 @@ header {
     &:hover {
       color: var(--color1);
     }
+  }
+  
+  .selected {
+    color: var(--color1dark);
   }
 }
 
