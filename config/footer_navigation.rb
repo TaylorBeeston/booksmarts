@@ -58,7 +58,6 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.dom_id = 'footer-links'
     primary.item :home, 'Home', root_url
-    primary.item :books, 'Books', books_path, if: -> { user_signed_in? }
     primary.item :sign_in, 'Log In', new_user_session_path,
                  unless: -> { user_signed_in? }
     primary.item :sign_out, 'Log Out', destroy_user_session_path,
