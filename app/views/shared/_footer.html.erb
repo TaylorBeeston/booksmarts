@@ -4,7 +4,7 @@
       <h3><%= link_to "Booksmarts", root_path %></h3>
       <span>Organize how and what you read</span>
     </div>
-    <%= render_navigation renderer: :links %>
+    <%= render_navigation renderer: :links, context: :footer %>
     <div id="footer-login-status">
       <% if user_signed_in? %>
         <%= "Logged in as #{current_user[:email]}" %>

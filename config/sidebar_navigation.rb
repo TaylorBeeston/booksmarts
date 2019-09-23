@@ -56,7 +56,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
-    primary.dom_id = 'header-links'
+    primary.dom_id = 'sidebar-links'
     primary.item :home, 'Home', root_url
     primary.item :books, 'Books', books_path, if: -> { user_signed_in? }
     primary.item :sign_in, 'Log In', new_user_session_path,
