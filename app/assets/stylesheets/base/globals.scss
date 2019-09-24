@@ -1,6 +1,14 @@
 :root {
-  --dark:        #0C0E11;
-  --light:       #F3F5F8;
+  --dark:        hsl(216, 17.2%, 5.7%);
+  --dark1:       hsl(216, 17.2%, 10%);
+  --dark2:       hsl(216, 17.2%, 15%);
+  --dark3:       hsl(216, 17.2%, 20%);
+  --dark4:       hsl(216, 17.2%, 25%);
+  --light:       hsl(216, 26.3%, 96.3%);
+  --light1:      hsl(216, 26.3%, 90%);
+  --light2:      hsl(216, 26.3%, 85%);
+  --light3:      hsl(216, 26.3%, 80%);
+  --light4:      hsl(216, 26.3%, 75%);
 
   --success:     #28A745;
   --notice:      #007Bff;
@@ -27,7 +35,7 @@
   --color4:      hsl(var(--color4hue), 15%, 45%);
   --color4dark:  hsl(var(--color4hue), 10%, 25%);
 
-  --color5hue:   201;
+  --color5hue:   218;
   --color5light: hsl(var(--color5hue), 20%, 50%);
   --color5:      hsl(var(--color5hue), 15%, 40%);
   --color5dark:  hsl(var(--color5hue), 10%, 25%);
@@ -229,7 +237,7 @@ header {
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: var(--color5);
+    background: var(--dark4);
     border-radius: 3px;
     z-index: 1;
     transform-origin: 4px 0px;
@@ -249,7 +257,7 @@ header {
   input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: var(--dark);
+    background: var(--light4);
   }
 
   input:checked ~ span:nth-last-child(3) {
