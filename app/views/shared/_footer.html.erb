@@ -7,7 +7,7 @@
     <%= render_navigation renderer: :links, context: :footer %>
     <div id="footer-login-status">
       <% if user_signed_in? %>
-        <%= "Logged in as #{current_user[:email]}" %>
+        <span><%= "Logged in as #{current_user[:email]}" %></span>
       <% else %>
         <span>You are not currently logged in</span>
       <% end %>

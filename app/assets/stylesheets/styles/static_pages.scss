@@ -10,3 +10,8 @@
   from { letter-spacing: -25px; }
   to   { letter-spacing: 10px; }
 }
+
+.welcome-message {
+  font-weight: lighter;
+  color: var(--dark2);
+}

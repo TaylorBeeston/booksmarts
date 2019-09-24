@@ -68,6 +68,17 @@
 .big {
   max-width: 100%;
   width: 100%;
+  font-size: 1.7em;
+}
+
+.title {
+  font-size: 37px;
+  margin: 15px;
+}
+
+.author {
+  font-size: 25px;
+  color: var(--dark1);
 }
 
 .book-cover {
@@ -103,13 +114,14 @@
     padding: 10px 25px;
     width: 45%;
     text-decoration: none;
-    color: var(--dark);
+    font-weight: lighter;
+    color: var(--dark4);
     text-align: center;
     letter-spacing: 1.3px;
     box-shadow: inset 0 0 3px var(--dark);
     border-radius: 5px;
     background-color: hsla(0,0%,100%,.5);
-    font-size: 1.7em;
+    font-size: 27px;
   }
 }
 
@@ -124,6 +136,10 @@
     display: flex;
     flex-direction: column;
     font-size: 1em;
+
+    label {
+      color: var(--dark3);
+    }
 
     input {
       font-size: 1em;
@@ -141,4 +157,8 @@
     background-color: hsla(0,0%,100%,.5);
     font-size: 1em;
   }
+}
+
+.trix-content ol, .trix-editor ol {
+  margin-left: 7px !important;
 }

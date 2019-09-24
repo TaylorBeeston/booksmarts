@@ -5,8 +5,8 @@
     <% else %>
       <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
     <% end %>
-    <h4><%= book.title %></h4>
-    <p><%= book.author %></p>
+    <h4 class="title"><%= book.title %></h4>
+    <p class="author"><%= book.author %></p>
   <% end %>
   <% if book.in_library?(current_user) %>
     <%= link_to 'Remove', book, method: :delete, 

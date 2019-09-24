@@ -10,8 +10,8 @@
     <% else %>
       <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
     <% end %>
-    <h4><%= @book.title %></h4>
-    <p><%= @book.author %></p>
+    <h1 class="title"><%= @book.title %></h4>
+    <p class="author"><%= @book.author %></p>
     <%= @book.note %>
   </div>
 </div>
