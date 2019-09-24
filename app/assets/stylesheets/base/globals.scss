@@ -7,25 +7,30 @@
   --error:       #DC3545;
   --warning:     #FFC107;
 
-  --color1light: #D6E9F4;
-  --color1:      #CEE5F2;
-  --color1dark:  #A9BCC7;
+  --color1hue:   202;
+  --color1light: hsl(var(--color1hue), 60%, 90%);
+  --color1:      hsl(var(--color1hue), 50%, 87.5%);
+  --color1dark:  hsl(var(--color1hue), 30%, 70%);
 
-  --color2light: #BBD4E6;
-  --color2:      #ACCBE1;
-  --color2dark:  #8DA7B9;
+  --color2hue:   205;
+  --color2light: hsl(var(--color2hue), 60%, 80%);
+  --color2:      hsl(var(--color2hue), 50%, 77.5%);
+  --color2dark:  hsl(var(--color2hue), 30%, 60%);
 
-  --color3light: #93AAC0;
-  --color3:      #7C98B3;
-  --color3dark:  #667D93;
+  --color3hue:   209;
+  --color3light: hsl(var(--color3hue), 30%, 65%);
+  --color3:      hsl(var(--color3hue), 25%, 60%);
+  --color3dark:  hsl(var(--color3hue), 20%, 40%);
 
-  --color4light: #7F8A97;
-  --color4:      #637081;
-  --color4dark:  #525C6A;
+  --color4hue:   213;
+  --color4light: hsl(var(--color4hue), 20%, 55%);
+  --color4:      hsl(var(--color4hue), 15%, 45%);
+  --color4dark:  hsl(var(--color4hue), 10%, 25%);
 
-  --color5light: #728590;
-  --color5:      #536B78;
-  --color5dark:  #445863;
+  --color5hue:   201;
+  --color5light: hsl(var(--color5hue), 20%, 50%);
+  --color5:      hsl(var(--color5hue), 15%, 40%);
+  --color5dark:  hsl(var(--color5hue), 10%, 25%);
 }
 
 /* global css */
