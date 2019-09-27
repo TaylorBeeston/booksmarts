@@ -57,14 +57,14 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
     primary.dom_id = 'sidebar-links'
-    primary.item :home, 'Home', root_url
-    primary.item :books, 'Books', books_path, if: -> { user_signed_in? } do |sub|
-      sub.item :new, 'New', new_book_path
-      sub.item :index, 'All', books_path
+    primary.item :home, :home.icon(36) + ' Home', root_url
+    primary.item :books, :import_contacts.icon(36) + ' Books', books_path, if: -> { user_signed_in? } do |sub|
+      sub.item :new, :book.icon + ' New', new_book_path
+      sub.item :index, :local_library.icon + ' All', books_path
     end
-    primary.item :sign_in, 'Log In', new_user_session_path,
+    primary.item :sign_in, :unlock.icon(36) + ' Log In', new_user_session_path,
                  unless: -> { user_signed_in? }
-    primary.item :sign_out, 'Log Out', destroy_user_session_path,
+    primary.item :sign_out, :lock.icon(36) + ' Log Out', destroy_user_session_path,
                  method: :delete, if: -> { user_signed_in? }
 
     # Add an item which has a sub navigation (same params, but with block)

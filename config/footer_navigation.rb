@@ -57,10 +57,10 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
     primary.dom_id = 'footer-links'
-    primary.item :home, 'Home', root_url
-    primary.item :sign_in, 'Log In', new_user_session_path,
+    primary.item :home, :home.icon(36), root_url
+    primary.item :sign_in, :unlock.icon(36), new_user_session_path,
                  unless: -> { user_signed_in? }
-    primary.item :sign_out, 'Log Out', destroy_user_session_path,
+    primary.item :sign_out, :lock.icon(36), destroy_user_session_path,
                  method: :delete, if: -> { user_signed_in? }
 
     # Add an item which has a sub navigation (same params, but with block)

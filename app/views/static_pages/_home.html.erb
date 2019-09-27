@@ -11,4 +11,4 @@
     <%= render @books %>
   <% end %>
 </div>
-<%= link_to 'New Book', new_book_path, class: 'new-book' %>
+<%= link_to :book.icon(18) + " New Book", new_book_path, class: 'new-book' %>

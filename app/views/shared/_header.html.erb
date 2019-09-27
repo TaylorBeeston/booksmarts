@@ -2,7 +2,12 @@
   <%= render "shared/sidebar" %>
   <div>
     <div id="header-logo">
-      <h1><%= link_to "Booksmarts", root_path %> </h1>
+      
+      <h1>
+        <%= link_to root_path do %> 
+          Booksmarts<%= 'local_library'.icon(36) %>
+        <% end %>
+      </h1>
     </div>
   </div>
 </header>

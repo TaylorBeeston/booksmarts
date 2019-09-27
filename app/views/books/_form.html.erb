@@ -20,6 +20,9 @@
         <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover',
                                          id: 'cover-preview' %>
       <% end %>
+      <div class="cover-uploader-icon">
+        <%= :add_a_photo.icon(48) %>
+      </div>
     <% end %>
     <%= form.file_field :cover %>
   </div>
