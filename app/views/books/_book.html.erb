@@ -5,17 +5,23 @@
     <% else %>
       <%= image_tag 'placeholder.png', alt: 'Book cover', class: 'book-cover' %>
     <% end %>
-    <h4><%= book.title %></h4>
-    <p><%= book.author %></p>
+    <div class="title">
+      <span><%= :title.icon(18) %></span>
+      <h4><%= book.title %></h4>
+    </div>
+    <div class="author">
+      <span><%= :person_outline.icon(18) %></span>
+      <span><%= book.author %></span>
+    </div>
   <% end %>
   <% if book.in_library?(current_user) %>
-    <%= link_to 'Remove', book, method: :delete, 
+    <%= link_to :remove_circle_outline.icon(18) + ' Remove', book, method: :delete, 
                 data: { confirm: 'Are you sure you want to remove this book from your list?' }, 
                 class: 'delete-link' %>
   <% else %>
     <%= form_with url: add_book_path(book) do |form| %>
       <%= hidden_field_tag :user_id, current_user.id %>
-      <%= form.submit 'Add', class: 'add-link' %>
+      <%= form.submit :add_circle_outline.icon(18) + ' Add', class: 'add-link' %>
     <% end %>
   <% end %>
 </div>

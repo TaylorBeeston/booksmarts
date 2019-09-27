@@ -1,17 +1,13 @@
 <header>
+  <%= render "shared/sidebar" %>
   <div>
     <div id="header-logo">
-      <h1><%= link_to "Booksmarts", root_path %> </h1>
-    </div>
-    <div id="header-links">
-        <%= link_to "Home", root_path %>
-        <% if user_signed_in? %>
-          <%= link_to "Books",    books_path %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <a href="#">About</a>
-          <%= link_to "Sign In", new_user_session_path %>
+      
+      <h1>
+        <%= link_to root_path do %> 
+          Booksmarts<%= 'local_library'.icon(36) %>
         <% end %>
+      </h1>
     </div>
   </div>
 </header>

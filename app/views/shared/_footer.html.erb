@@ -4,21 +4,13 @@
       <h3><%= link_to "Booksmarts", root_path %></h3>
       <span>Organize how and what you read</span>
     </div>
-    <div id="footer-links">
-        <%= link_to "Home", root_path %>
-        <a href="#">About</a>
-        <% if user_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Sign In", new_user_session_path %>
-        <% end %>
-    </div>
     <div id="footer-login-status">
       <% if user_signed_in? %>
-        <%= "Logged in as #{current_user[:email]}" %>
+        <span><%= "Logged in as #{current_user[:email]}" %></span>
       <% else %>
         <span>You are not currently logged in</span>
       <% end %>
     </div>
+    <%= render_navigation renderer: :links, context: :footer %>
   </div>
 </footer>
