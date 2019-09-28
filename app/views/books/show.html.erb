@@ -1,7 +1,9 @@
 <div class="presenter">
   <div class="nav-buttons">
     <%= link_to :arrow_back.icon + ' Back', books_path %>
-    <%= link_to :edit.icon + ' Edit', edit_book_path(@book) %>
+    <% if @book.in_library?(current_user) %>
+      <%= link_to :edit.icon + ' Edit', edit_book_path(@book) %>
+    <% end %>
   </div>
 
   <div class="big book">
@@ -18,6 +20,8 @@
       <span><%= :person_outline.icon(36) %></span>
       <span id="big-author"><%= @book.author %></span>
     </div>
-    <%= @book.note %>
+    <% if @book.in_library?(current_user) %>
+      <%= @book.note %>
+    <% end %>
   </div>
 </div>
