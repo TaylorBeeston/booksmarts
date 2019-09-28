@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all.uniq(&:title)
+    @books = Book.where.not(title: current_user.books.pluck(:title)) + current_user.books
   end
 
   # GET /books/1
