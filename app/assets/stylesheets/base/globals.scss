@@ -116,7 +116,9 @@ input[type=submit] {
 .big-screen {
   width: 90%;
   margin: 0 auto;
-  background-color: var(--color2);
+  background-color: var(--light1);
+  border-right: thick solid var(--light4);
+  border-left:  thick solid var(--light4);
   padding: 10px;
   box-shadow: 0 0 25px var(--dark4);
   min-height: 955px;
@@ -130,7 +132,6 @@ input[type=submit] {
   margin: 10px auto;
   padding: 15px;
   border-radius: 5px;
-  background-color: var(--color2);
   letter-spacing: 2px;
 
   > h1 {
@@ -176,14 +177,15 @@ header {
   width: 100%;
   margin: 0;
   padding: 5px 0;
-  background-color: var(--color1light);
+  background-color: var(--light2);
+  border-top:    thick solid var(--color2dark);
+  border-bottom: thick solid var(--light4);
   position: relative;
   z-index: 1;
 
   > div {
     display: flex;
     justify-content: space-around;
-    background-color: var(--color1light);
     width: 72.5%;
     margin: auto;
     padding: 25px 0;
@@ -281,7 +283,8 @@ header {
   margin: -82px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: var(--color5);
+  background: var(--color2dark);
+  border-right: thick solid var(--light4);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -327,14 +330,15 @@ footer {
   width: 100%;
   margin: 0;
   padding: 5px 0;
-  background-color: var(--color1);
+  background-color: var(--light2);
+  border-top:    thick solid var(--light4);
+  border-bottom: thick solid var(--color2dark);
   position: relative;
   z-index: 1;
 
   > div {
     display: flex;
     justify-content: space-around;
-    background-color: var(--color1);
     width: 92.5%;
     margin: auto;
     padding: 25px 0;
@@ -365,7 +369,7 @@ footer {
     margin: 0px 5px;
     border-radius: 5px;
     font-size: 1.2em;
-    background-color: var(--color1);
+    background-color: var(--light1);
     transition: background-color 0.3s ease;
 
     &:hover {
