@@ -5,6 +5,8 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @book  = books(:valid)
+    @book2 = books(:noauthor)
+    @book3 = books(:other_user)
     @user  = users(:taylor)
     @user2 = users(:not_taylor)
     sign_in @user
@@ -14,6 +16,20 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     sign_out @user
     get books_url
     assert_redirected_to new_user_session_path
+  end
+
+  test 'index should have two books' do
+    get books_url
+    assert_select '.book', count: 2
+  end
+
+  test 'index should show correct books' do
+    get books_url
+    assert_select 'a[href=?]', book_path(@book)
+    sign_out @user
+    sign_in  @user2
+    get books_url
+    assert_select 'a[href=?]', book_path(@book3)
   end
 
   test 'should get new' do
@@ -57,7 +73,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     sign_in  @user2
 
     assert_difference('User.last.books.count', 1) do
-      post add_book_url(@book), params: { user_id: @user2.id  }
+      post add_book_url(@book2), params: { user_id: @user2.id  }
     end
   end
 

@@ -8,3 +8,8 @@ valid:
 noauthor:
   title: This book has no author
   user: taylor
+
+other_user:
+  title: This is a Valid Book
+  author: Taylor Beeston
+  user: not_taylor
