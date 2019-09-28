@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/TaylorBeeston/booksmarts.svg?branch=master)](https://travis-ci.org/TaylorBeeston/booksmarts)
+[![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/TaylorBeeston/booksmarts&style=flat)](https://mergify.io)
 
 # Booksmarts
 
