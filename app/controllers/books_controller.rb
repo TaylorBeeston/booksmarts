@@ -67,6 +67,7 @@ class BooksController < ApplicationController
   # POST /books/add
   def add
     @new_book = @book.dup
+    @new_book.cover.attach(@book.cover.blob)
     @new_book.user_id = params[:user_id]
 
     respond_to do |format|
