@@ -53,6 +53,11 @@ html, body {
   color: var(--dark);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -114,7 +119,7 @@ input[type=submit] {
 
 /* main elements */
 
-.big-screen {
+#big-screen {
   width: 90%;
   margin: 0 auto;
   background-color: var(--light1);
@@ -122,10 +127,7 @@ input[type=submit] {
   border-left:  thick solid var(--light4);
   padding: 10px;
   box-shadow: 0 0 25px var(--dark4);
-  min-height: 955px;
-  min-height: -moz-available;
-  min-height: -webkit-fill-available;
-  min-height: fill-available;
+  flex-grow: 1;
 }
 
 .presenter {
