@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :books
   attr_writer :login
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
+  validate :validate_username
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -22,5 +24,11 @@ class User < ApplicationRecord
       conditions[:email].downcase! if conditions[:email].exists?
       where(conditions.to_h).first
     end
+  end
+
+  protected
+
+  def validate_username
+    errors.add(:username, :invalid) if User.where(email: username).exists?
   end
 end
