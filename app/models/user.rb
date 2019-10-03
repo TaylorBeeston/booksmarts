@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :books
+  has_many :libraries
+  has_many :books, through: :libraries
   attr_writer :login
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true

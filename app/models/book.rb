@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :user
+  belongs_to :library
   validates_presence_of :title
   before_update :default_author
 
