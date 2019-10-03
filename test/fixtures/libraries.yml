@@ -1,9 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  user: one
+taylor_read:
+  name: Read
+  user: taylor
 
-two:
-  name: MyString
-  user: two
+taylor_want:
+  name: Want to Read
+  user: taylor
+
+taylor_reading:
+  name: Reading
+  user: taylor
+
+not_taylor_read:
+  name: Read
+  user: not_taylor
+
+not_taylor_want:
+  name: Want to Read
+  user: not_taylor
+
+not_taylor_reading:
+  name: Reading
+  user: not_taylor
