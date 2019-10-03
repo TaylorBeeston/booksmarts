@@ -18,6 +18,17 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", destroy_user_session_path
   end
 
+  test 'new user should have three default libraries' do
+    user = { username: 'coolguy123', email: 'abc123@123.com',
+             password: Devise::Encryptor.digest(User, 'password') }
+
+    assert_difference 'User.count', 1 do
+      post user_registration_path, params: { user: user }
+    end
+
+    assert_equal 3, User.last.libraries.count
+  end
+
   # Do this after getting things up and running
   # test "omniauth links on signup page" do
   #   get new_user_registration_path
