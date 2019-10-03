@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book.library_id = current_user.libraries.first.id
 
     respond_to do |format|
       if !@book.in_library?(current_user) && @book.save
@@ -68,7 +68,7 @@ class BooksController < ApplicationController
   def add
     @new_book = @book.dup
     @new_book.cover.attach(@book.cover.blob) if @book.cover.present?
-    @new_book.user_id = params[:user_id]
+    @new_book.library_id = current_user.libraries.first.id
 
     respond_to do |format|
       if !@book.in_library?(current_user) && @new_book.save
@@ -94,6 +94,6 @@ class BooksController < ApplicationController
 
     # Ensure this book is for the currnet user
     def correct_user
-      redirect_to root_path unless current_user.id == @book.user_id
+      redirect_to root_path unless current_user.id == @book.library.user_id
     end
 end
