@@ -5,12 +5,14 @@
 # below each fixture, per the syntax in the comments below
 #
 taylor: 
+  username: Taylor
   email: fakemail@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now %>
   confirmation_sent_at: <%= 30.seconds.ago %>
 
 not_taylor:
+  username: Not Taylor
   email: fakemail2@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now %>

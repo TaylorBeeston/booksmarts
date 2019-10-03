@@ -12,13 +12,13 @@
     },
     "imageform": {
       "js": [
-        "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js"
+        "/packs-test/js/imageform-bac4a6d235cbb62cd007.js"
       ],
       "js.map": [
-        "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js.map"
+        "/packs-test/js/imageform-bac4a6d235cbb62cd007.js.map"
       ]
     }
   },
-  "imageform.js": "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js",
-  "imageform.js.map": "/packs-test/js/imageform-0a6e1974e859d2e3e82e.js.map"
+  "imageform.js": "/packs-test/js/imageform-bac4a6d235cbb62cd007.js",
+  "imageform.js.map": "/packs-test/js/imageform-bac4a6d235cbb62cd007.js.map"
 }
