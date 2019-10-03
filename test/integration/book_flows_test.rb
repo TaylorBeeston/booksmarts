@@ -26,17 +26,17 @@ class BookFlowsTest < ActionDispatch::IntegrationTest
 
   test 'new book is assigned to currently signed in user' do
     post books_path, params: { book: { title: 'Title', author: 'Author' } }
-    assert_equal @taylor.id, Book.last.user_id
+    assert_equal @taylor.id, Book.last.library.user_id
     sign_out @taylor
 
     sign_in @other
     post books_path, params: { book: { title: 'Title', author: 'Author' } }
-    assert_equal @other.id, Book.last.user_id
+    assert_equal @other.id, Book.last.library.user_id
   end
 
   test 'cannot edit user_id' do
     patch book_path(@book), params: { book: { user_id: 12 } }
-    assert_equal @taylor.id, Book.find(@book.id).user_id
+    assert_equal @taylor.id, Book.find(@book.id).library.user_id
   end
 
   test "cannot edit another user's book" do
