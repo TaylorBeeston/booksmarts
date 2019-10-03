@@ -57,6 +57,13 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
     primary.dom_id = 'sidebar-links'
+    if user_signed_in?
+      primary.item :my_account, :account_circle.icon(36) + ' My Account',
+                    user_path(current_user) do |sub|
+        sub.item :edit, :edit.icon + ' Edit', edit_user_registration_path
+      end
+    primary.item :seperator, ''
+    end
     primary.item :home, :home.icon(36) + ' Home', root_url
     primary.item :books, :import_contacts.icon(36) + ' Books', books_path, if: -> { user_signed_in? } do |sub|
       sub.item :new, :book.icon + ' New', new_book_path

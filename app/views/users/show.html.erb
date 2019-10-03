@@ -1,0 +1,25 @@
+<div class="user presenter">
+  <% if @current %>
+    <%= link_to :edit.icon(48), edit_user_registration_path(@user), 
+                class: 'edit-user-icon' %>
+  <% end %>
+  <% if @user.profile_picture.attached? %>
+    <%= image_tag @user.profile_picture, alt: 'Profile Picture', 
+                  class: 'big-profile-picture' %>
+  <% else %>
+    <%= image_tag 'placeholder.png', alt: 'Profile Picture', 
+                  class: 'big-profile-picture' %>
+  <% end %>
+  <div class="username">
+    <span><%= :account_circle.icon(36) %></span>
+    <h1><%= @user.username %></h1>
+  </div>
+  <div class="book-count">
+    <span><%= :import_contacts.icon(36) %></span>
+    <h1><%= "#{number_to_human(@books_count)} #{'book'.pluralize(@books_count)}" %> in libraries</h1>
+  </div>
+  <h1>Books</h1>
+  <div class="books">
+    <%= render @user.books %> 
+  </div>
+</div>
