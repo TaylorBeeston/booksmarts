@@ -4,6 +4,17 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="image-upload">
+      <%= f.label :profile_picture  do %> 
+        <%= image_tag 'placeholder.png', alt: 'Profile Picture', 
+                      class: 'profile-picture', id: 'profile-picture' %>
+      <div class="profile-picture-uploader-icon">
+        <%= :add_a_photo.icon(48) %> 
+      </div>
+      <% end %>
+      <%= f.file_field :profile_picture %>
+    </div>
+
     <div class="field">
       <%= f.label :username %><br />
       <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
@@ -34,3 +45,5 @@
   
   <%= render "devise/shared/links" %>
 </div>
+
+<%= javascript_pack_tag 'imageform' %>

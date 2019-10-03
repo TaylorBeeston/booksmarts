@@ -1,5 +1,5 @@
-preview  = document.querySelector('#cover-preview')
-uploader = document.querySelector('#book_cover');
+preview  = document.querySelector('.image-upload img')
+uploader = document.querySelector('.image-upload input');
 
 uploader.onchange = function(e) {
   var reader = new FileReader();

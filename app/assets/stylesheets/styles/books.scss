@@ -196,28 +196,3 @@
 .trix-content ol, .trix-editor ol {
   margin-left: 7px !important;
 }
-
-.image-upload {
-  position: relative;
-}
-
-#cover-preview:hover {
-  cursor: pointer;
-}
-
-.cover-uploader-icon {
-  height: 30%;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: var(--light2);
-
-  &:hover {
-    cursor: pointer;
-  }
-}

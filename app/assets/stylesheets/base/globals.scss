@@ -170,8 +170,33 @@ input[type=submit] {
 }
 
 /* image uploader */
-.image-upload > input {
-  display: none;
+.image-upload {
+  position: relative;
+
+  img:hover {
+    cursor: pointer;
+  }
+
+  &>input {
+    display: none
+  }
+
+  div {
+    height: 30%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: var(--light2);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 /* header styles */
