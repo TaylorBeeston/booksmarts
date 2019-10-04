@@ -12,8 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    Library.create(name: 'Books I have Read', user_id: resource.id)
-    Library.create(name: 'Books I want to Read', user_id: resource.id)
+    Library.create(name: 'Books I Have Read', user_id: resource.id)
+    Library.create(name: 'Books I Want to Read', user_id: resource.id)
     Library.create(name: 'Books I am Reading', user_id: resource.id)
   end
 

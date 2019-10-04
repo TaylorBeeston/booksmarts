@@ -1,25 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 taylor_read:
-  name: Read
+  name: Books I Have Read
   user: taylor
 
 taylor_want:
-  name: Want to Read
+  name: Books I Want to Read
   user: taylor
 
 taylor_reading:
-  name: Reading
+  name: Books I am Reading
   user: taylor
 
 not_taylor_read:
-  name: Read
+  name: Books I Have Read
   user: not_taylor
 
 not_taylor_want:
-  name: Want to Read
+  name: Books I Want to Read
   user: not_taylor
 
 not_taylor_reading:
-  name: Reading
+  name: Books I am Reading
   user: not_taylor
