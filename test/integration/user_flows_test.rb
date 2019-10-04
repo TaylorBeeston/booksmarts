@@ -26,7 +26,12 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
       post user_registration_path, params: { user: user }
     end
 
-    assert_equal 3, User.last.libraries.count
+    libraries = User.last.libraries
+
+    assert_equal 3, libraries.count
+    assert libraries.any? { |lib| lib.name == 'Books I Have Read' }
+    assert libraries.any? { |lib| lib.name == 'Books I Want to Read' }
+    assert libraries.any? { |lib| lib.name == 'Books I am Reading' }
   end
 
   # Do this after getting things up and running
