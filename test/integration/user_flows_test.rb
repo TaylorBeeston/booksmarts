@@ -34,6 +34,12 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert libraries.any? { |lib| lib.name == 'Books I am Reading' }
   end
 
+  test 'should be able to delete user with books/libraries' do
+    assert_difference 'User.count', -1 do
+      delete user_registration_path(@taylor)
+    end
+  end
+
   # Do this after getting things up and running
   # test "omniauth links on signup page" do
   #   get new_user_registration_path
