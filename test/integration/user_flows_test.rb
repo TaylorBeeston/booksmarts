@@ -36,7 +36,7 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
 
   test 'should be able to delete user with books/libraries' do
     assert_difference 'User.count', -1 do
-      delete user_registration_path(@taylor)
+      @taylor.delete
     end
   end
 
